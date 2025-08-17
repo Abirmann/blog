@@ -1,0 +1,29 @@
+title: Essays
+description: Личные эссе и заметки
+lang: ru
+
+# If publishing under a project site, set these:
+# url: "https://<username>.github.io"
+# baseurl: "/<repository>"
+
+collections:
+  essays:
+    output: true
+    permalink: /essays/:name/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  smart_quotes: lsquo,rsquo,laquo,raquo
+
+excerpt_separator: "<!--more-->"
+
+# Defaults for the essays collection
+defaults:
+  - scope:
+      path: ""
+      type: essays
+    values:
+      layout: essay
+      lang: ru 

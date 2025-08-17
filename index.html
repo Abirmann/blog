@@ -1,0 +1,19 @@
+---
+layout: default
+title: Все эссе
+---
+<h1>Все эссе</h1>
+<ul class="essay-list">
+	{% assign items = site.essays | sort: 'date' | reverse %}
+	{% for essay in items %}
+	<li class="essay-list-item">
+		<a class="essay-list-link" href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
+		{% if essay.date %}
+		<span class="essay-list-date"> · {{ essay.date | date: "%d %b %Y" }}</span>
+		{% endif %}
+		{% if essay.excerpt %}
+		<p class="essay-list-excerpt">{{ essay.excerpt | strip_html | truncate: 180 }}</p>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul> 
