@@ -1,33 +1,33 @@
 :root {
-	--text: #0d0d0d;
+	--text: #111827;
 	--muted: #6b7280;
 	--bg: #ffffff;
 	--border: #e5e7eb;
-	--link: #0ea5e9;
+	--link: #111827;
 	--code-bg: #f8fafc;
-	--maxw: 760px;
+	--maxw: 720px;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--text: #e5e7eb;
-		--muted: #9ca3af;
-		--bg: #0b0f14;
-		--border: #1f2937;
-		--link: #38bdf8;
-		--code-bg: #0f172a;
+		--text: #111827;
+		--muted: #6b7280;
+		--bg: #ffffff;
+		--border: #e5e7eb;
+		--link: #111827;
+		--code-bg: #f8fafc;
 	}
 }
 
 * { box-sizing: border-box; }
 
-html { font-size: 18px; }
+html { font-size: 19px; }
 body {
 	margin: 0;
 	color: var(--text);
 	background: var(--bg);
 	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-	line-height: 1.7;
+	line-height: 1.75;
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -41,7 +41,7 @@ body {
 .site-title { color: var(--text); text-decoration: none; font-weight: 600; }
 .site-title:hover { opacity: .8; }
 
-.site-main .container { padding: 2rem 1rem 4rem; }
+.site-main .container { padding: 3rem 1rem 4rem; }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
@@ -49,16 +49,16 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 2rem 0 0.75rem;
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.35rem; }
 
-p { margin: 1rem 0; }
+p { margin: 1.1rem 0; }
 
 ul, ol { padding-left: 1.25rem; }
 
 blockquote {
-	margin: 1.5rem 0;
+	margin: 1.8rem 0;
 	padding: 0.75rem 1rem;
 	background: var(--code-bg);
 	border-left: 3px solid var(--border);
@@ -77,12 +77,21 @@ pre {
 	border: 1px solid var(--border);
 }
 
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: rgba(17, 24, 39, 0.45);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+a:hover {
+	text-decoration-color: rgba(17, 24, 39, 0.8);
+	text-decoration-thickness: 2px;
+}
 
 hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 
-.essay-title { margin-top: 0; font-size: 2.2rem; }
+.essay-title { margin-top: 0; font-size: 2.8rem; }
 .essay-meta { color: var(--muted); margin-top: -0.25rem; }
 .essay-body img { max-width: 100%; border-radius: 8px; }
 .essay-body table { width: 100%; border-collapse: collapse; }
