@@ -1,21 +1,21 @@
 :root {
-	--text: #1f2937;
-	--muted: #6b7280;
-	--bg: #fefdfb;
-	--border: #f3f1ed;
-	--link: #1f2937;
-	--code-bg: #f9f7f4;
+	--text: #2d2926;
+	--muted: #6f655c;
+	--bg: #f7f2e9;
+	--border: #e8e1d6;
+	--link: #2d2926;
+	--code-bg: #f2ebe1;
 	--maxw: 800px;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--text: #1f2937;
-		--muted: #6b7280;
-		--bg: #fefdfb;
-		--border: #f3f1ed;
-		--link: #1f2937;
-		--code-bg: #f9f7f4;
+		--text: #2d2926;
+		--muted: #6f655c;
+		--bg: #f7f2e9;
+		--border: #e8e1d6;
+		--link: #2d2926;
+		--code-bg: #f2ebe1;
 	}
 }
 
@@ -30,7 +30,7 @@ body {
 	margin: 0;
 	color: var(--text);
 	background: var(--bg);
-	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 	line-height: 1.7;
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
@@ -51,7 +51,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
+	font-family: "Source Serif 4", Georgia, "Times New Roman", Times, serif;
 	line-height: 1.3;
 	margin: 1.5rem 0 0.75rem;
 }
@@ -108,20 +108,20 @@ pre {
 a {
 	color: inherit;
 	text-decoration: underline;
-	text-decoration-color: rgba(31, 41, 55, 0.4);
+	text-decoration-color: rgba(45, 41, 38, 0.4);
 	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
 }
 a:hover {
-	text-decoration-color: rgba(31, 41, 55, 0.7);
+	text-decoration-color: rgba(45, 41, 38, 0.7);
 	text-decoration-thickness: 2px;
 }
 
 hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 
-.essay-title { margin-top: 0; font-size: 2.2rem; }
+.essay-title { margin-top: 0; font-size: 1.8rem; }
 @media (min-width: 768px) {
-	.essay-title { font-size: 2.6rem; }
+	.essay-title { font-size: 2.1rem; }
 }
 
 .essay-meta { color: var(--muted); margin-top: -0.25rem; }
