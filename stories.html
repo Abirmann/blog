@@ -1,0 +1,16 @@
+---
+layout: default
+title: Рассказы
+permalink: /stories/
+---
+<h1>Рассказы</h1>
+<ul class="essay-list">
+	{% assign items = site.stories | sort: 'date' | reverse %}
+	{% for item in items %}
+	<li class="essay-list-item">
+		<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+		{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
+		{% if item.excerpt %}<p class="essay-list-excerpt">{{ item.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
+	</li>
+	{% endfor %}
+</ul> 

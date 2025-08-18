@@ -16,7 +16,15 @@
 <body>
 	<header class="site-header">
 		<div class="container">
-			<a class="site-title" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+			<a class="site-title" href="{{ "/" | relative_url }}">
+				<span class="site-title-line1">Point&nbsp;of</span>
+				<span class="site-title-line2">Convergence</span>
+			</a>
+			<nav class="site-nav" aria-label="Навигация по разделам">
+				<a href="{{ "/analyses/" | relative_url }}">Разборы</a>
+				<a href="{{ "/essays/" | relative_url }}">Эссе</a>
+				<a href="{{ "/stories/" | relative_url }}">Рассказы</a>
+			</nav>
 		</div>
 	</header>
 	<main class="site-main">

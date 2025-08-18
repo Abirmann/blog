@@ -1,4 +1,4 @@
-title: Essays
+title: Point of Convergence
 description: Личные эссе и заметки
 lang: ru
 
@@ -10,6 +10,12 @@ collections:
   essays:
     output: true
     permalink: /essays/:name/
+  analyses:
+    output: true
+    permalink: /analyses/:name/
+  stories:
+    output: true
+    permalink: /stories/:name/
 
 markdown: kramdown
 kramdown:
@@ -19,11 +25,23 @@ kramdown:
 
 excerpt_separator: "<!--more-->"
 
-# Defaults for the essays collection
+# Defaults for the collections
 defaults:
   - scope:
       path: ""
       type: essays
+    values:
+      layout: essay
+      lang: ru
+  - scope:
+      path: ""
+      type: analyses
+    values:
+      layout: essay
+      lang: ru
+  - scope:
+      path: ""
+      type: stories
     values:
       layout: essay
       lang: ru 
