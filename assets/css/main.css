@@ -193,9 +193,41 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 
 .essay-list { list-style: none; padding: 0; margin: 2rem 0 0; }
 .essay-list-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
-.essay-list-link { font-weight: 600; }
+
+.essay-list-meta {
+	font-size: 0.85rem;
+	color: var(--muted);
+	margin-bottom: 0.35rem;
+}
+
+.essay-list-title-row {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+.essay-list-number {
+	font-weight: 700;
+	font-size: 1.3rem;
+	color: var(--text);
+	flex-shrink: 0;
+}
+
+.essay-list-link {
+	font-weight: 600;
+	font-size: 1.2rem;
+	line-height: 1.3;
+}
+
 .essay-list-date { color: var(--muted); }
-.essay-list-excerpt { color: var(--muted); margin: 0.5rem 0 0; } 
+.essay-list-stats { color: var(--muted); }
+.essay-list-excerpt { color: var(--muted); margin: 0.5rem 0 0; }
+
+@media (min-width: 768px) {
+	.essay-list-meta { font-size: 0.9rem; }
+	.essay-list-number { font-size: 1.5rem; }
+	.essay-list-link { font-size: 1.35rem; }
+} 
 
 .toc {
 	margin: 1rem 0 1.5rem;
