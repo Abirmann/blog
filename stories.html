@@ -1,16 +1,20 @@
 ---
 layout: default
-title: Рассказы
+title: Истории
 permalink: /stories/
 ---
-<h1>Рассказы</h1>
+<h1>Истории</h1>
 <ul class="essay-list">
 	{% assign items = site.stories | sort: 'date' | reverse %}
 	{% for item in items %}
 	<li class="essay-list-item">
+		<span class="essay-list-number">{{ forloop.length | minus: forloop.index0 }}.</span>
 		<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
 		{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
-		{% if item.excerpt %}<p class="essay-list-excerpt">{{ item.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
+		{% assign words = item.content | number_of_words %}
+		{% assign reading_time = words | divided_by: 200 %}
+		{% if reading_time == 0 %}{% assign reading_time = 1 %}{% endif %}
+		<span class="essay-list-stats"> · {{ words }} слов · ~{{ reading_time }} мин</span>
 	</li>
 	{% endfor %}
 </ul> 

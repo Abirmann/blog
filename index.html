@@ -9,11 +9,15 @@ title: Все тексты
 	<h2>Разборы</h2>
 	<ul class="essay-list">
 		{% for item in analyses_items %}
-		<li class="essay-list-item">
-			<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-			{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
-			{% if item.excerpt %}<p class="essay-list-excerpt">{{ item.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
-		</li>
+	<li class="essay-list-item">
+		<span class="essay-list-number">{{ forloop.length | minus: forloop.index0 }}.</span>
+		<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+		{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
+		{% assign words = item.content | number_of_words %}
+		{% assign reading_time = words | divided_by: 200 %}
+		{% if reading_time == 0 %}{% assign reading_time = 1 %}{% endif %}
+		<span class="essay-list-stats"> · {{ words }} слов · ~{{ reading_time }} мин</span>
+	</li>
 		{% endfor %}
 	</ul>
 {% endif %}
@@ -23,25 +27,33 @@ title: Все тексты
 	<h2>Эссе</h2>
 	<ul class="essay-list">
 		{% for item in essay_items %}
-		<li class="essay-list-item">
-			<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-			{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
-			{% if item.excerpt %}<p class="essay-list-excerpt">{{ item.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
-		</li>
+	<li class="essay-list-item">
+		<span class="essay-list-number">{{ forloop.length | minus: forloop.index0 }}.</span>
+		<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+		{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
+		{% assign words = item.content | number_of_words %}
+		{% assign reading_time = words | divided_by: 200 %}
+		{% if reading_time == 0 %}{% assign reading_time = 1 %}{% endif %}
+		<span class="essay-list-stats"> · {{ words }} слов · ~{{ reading_time }} мин</span>
+	</li>
 		{% endfor %}
 	</ul>
 {% endif %}
 
 {% assign story_items = site.stories | sort: 'date' | reverse %}
 {% if story_items and story_items.size > 0 %}
-	<h2>Рассказы</h2>
+	<h2>Истории</h2>
 	<ul class="essay-list">
 		{% for item in story_items %}
-		<li class="essay-list-item">
-			<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-			{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
-			{% if item.excerpt %}<p class="essay-list-excerpt">{{ item.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
-		</li>
+	<li class="essay-list-item">
+		<span class="essay-list-number">{{ forloop.length | minus: forloop.index0 }}.</span>
+		<a class="essay-list-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+		{% if item.date %}<span class="essay-list-date"> · {{ item.date | date: "%d %b %Y" }}</span>{% endif %}
+		{% assign words = item.content | number_of_words %}
+		{% assign reading_time = words | divided_by: 200 %}
+		{% if reading_time == 0 %}{% assign reading_time = 1 %}{% endif %}
+		<span class="essay-list-stats"> · {{ words }} слов · ~{{ reading_time }} мин</span>
+	</li>
 		{% endfor %}
 	</ul>
 {% endif %} 
