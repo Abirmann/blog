@@ -197,7 +197,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .essay-list-meta {
 	font-size: 0.85rem;
 	color: var(--muted);
-	margin-bottom: 0.35rem;
+	margin-bottom: 0.15rem;
 }
 
 .essay-list-title-row {
