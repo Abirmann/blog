@@ -16,13 +16,11 @@
 <body>
 	<header class="site-header">
 		<div class="container">
-			<a class="site-title" href="{{ "/" | relative_url }}">
-				Bearing Man
-			</a>
+			<a class="site-title" href="{{ "/" | relative_url }}">Acting Word</a>
 			<nav class="site-nav" aria-label="Навигация по разделам">
 				<a href="{{ "/analyses/" | relative_url }}">Разборы</a>
 				<a href="{{ "/essays/" | relative_url }}">Эссе</a>
-				<a href="{{ "/stories/" | relative_url }}">Рассказы</a>
+				<a href="{{ "/stories/" | relative_url }}">Истории</a>
 			</nav>
 		</div>
 	</header>
@@ -31,10 +29,5 @@
 			{{ content }}
 		</div>
 	</main>
-	<footer class="site-footer">
-		<div class="container">
-			<p>© {{ "now" | date: "%Y" }} · {{ site.title }}</p>
-		</div>
-	</footer>
 </body>
 </html> 
