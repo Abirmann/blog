@@ -94,47 +94,52 @@
 		// Each section = h1 + all following siblings until next h1
 		var sections = [];
 		
-		// First, collect all nodes that belong to each section
+		// First, collect all nodes for each section BEFORE moving anything
 		var sectionNodes = [];
 		h1s.forEach(function(h1, i) {
 			var nodes = [h1];
-			var node = h1.nextSibling;
+			var node = h1.nextElementSibling;
 			var nextH1 = (i < h1s.length - 1) ? h1s[i + 1] : null;
 			
-			// Collect all siblings until we hit the next h1
+			// Collect all element siblings until we hit the next h1
 			while (node) {
 				if (node === nextH1) break;
-				var next = node.nextSibling;
+				var next = node.nextElementSibling;
 				nodes.push(node);
 				node = next;
 			}
 			
-			sectionNodes.push(nodes);
+			sectionNodes.push({
+				h1: h1,
+				nodes: nodes,
+				title: h1.textContent.replace(/^\d+\.\s*/, '').trim()
+			});
 		});
 		
-		// Now create wrappers and move nodes
-		sectionNodes.forEach(function(nodes, i) {
-			if (nodes.length === 0) return;
-			
-			var h1 = nodes[0];
+		// Now create wrappers and move nodes (process in reverse to avoid position shifts)
+		for (var i = sectionNodes.length - 1; i >= 0; i--) {
+			var data = sectionNodes[i];
 			var wrapper = document.createElement('div');
 			wrapper.className = 'essay-page';
 			wrapper.dataset.pageIndex = i;
+			wrapper.style.display = 'none'; // Hide by default
 			
 			// Insert wrapper before first node (h1)
-			var parent = h1.parentNode;
-			parent.insertBefore(wrapper, h1);
+			essayBody.insertBefore(wrapper, data.h1);
 			
-			// Move all nodes into wrapper
-			nodes.forEach(function(node) {
+			// Move all collected nodes into wrapper
+			data.nodes.forEach(function(node) {
 				wrapper.appendChild(node);
 			});
 			
-			sections.push({
+			sections[i] = {
 				el: wrapper,
-				title: h1.textContent.replace(/^\d+\.\s*/, '').trim() // strip leading "1. "
-			});
-		});
+				title: data.title
+			};
+		}
+		
+		// Reverse sections array to get correct order
+		sections.reverse();
 
 		if (sections.length <= 1 && sections.length > 0) {
 			// Only one section — no pagination needed, just show it
@@ -161,6 +166,9 @@
 		var nextLink = pageNav.querySelector('.page-nav-next');
 		var indicator = pageNav.querySelector('.page-nav-indicator');
 		var currentPage = 0;
+		
+		// Initially hide page nav, will be shown by showPage
+		pageNav.style.display = 'none';
 
 		function showPage(index) {
 			if (index < 0 || index >= sections.length) return;
