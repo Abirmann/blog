@@ -260,4 +260,86 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .toc-list .toc-level-3 { padding-left: 1rem; }
 
 /* active section - emphasize without underline */
-.toc-list a.is-active { background: rgba(45, 41, 38, 0.08); color: var(--text); font-weight: 700; } 
+.toc-list a.is-active { background: rgba(45, 41, 38, 0.08); color: var(--text); font-weight: 700; }
+
+/* ── Page navigation (prev / next) ─────────────── */
+.page-nav {
+	display: none;
+	align-items: stretch;
+	justify-content: space-between;
+	margin: 2.5rem 0 0.5rem;
+	padding: 1.25rem 0 0;
+	border-top: 1px solid var(--border);
+	gap: 0.75rem;
+}
+
+.page-nav-prev,
+.page-nav-next {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	text-decoration: none;
+	color: var(--text);
+	max-width: 42%;
+	padding: 0.6rem 0.75rem;
+	border-radius: 8px;
+	transition: background-color .15s ease, opacity .15s ease;
+}
+.page-nav-prev:hover,
+.page-nav-next:hover {
+	background: rgba(45, 41, 38, 0.05);
+	text-decoration: none;
+}
+
+.page-nav-next {
+	text-align: right;
+	margin-left: auto;
+	align-items: flex-end;
+}
+
+.page-nav-arrow {
+	font-size: 1.1rem;
+	color: var(--muted);
+	line-height: 1;
+}
+
+.page-nav-label {
+	font-weight: 600;
+	font-size: 0.95rem;
+	line-height: 1.35;
+}
+
+.page-nav-indicator {
+	display: flex;
+	align-items: center;
+	color: var(--muted);
+	font-size: 0.85rem;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+	.page-nav-label { font-size: 1.05rem; }
+	.page-nav-arrow { font-size: 1.2rem; }
+}
+
+/* h1 inside essay-body (section headings for paginated essays) */
+.essay-body h1 {
+	font-size: 1.6rem;
+	margin-top: 0;
+	padding-bottom: 0.4rem;
+	border-bottom: 1px solid var(--border);
+}
+@media (min-width: 768px) {
+	.essay-body h1 {
+		font-size: 1.85rem;
+	}
+}
+
+/* Essay pages (sections for paginated essays) */
+.essay-page {
+	display: none;
+}
+.essay-page:first-of-type {
+	display: block;
+}

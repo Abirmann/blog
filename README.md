@@ -25,13 +25,41 @@ title: Заголовок
 
 - Commit and push. The homepage (`/`) lists all essays by date.
 
-## Local preview (optional)
+## Local preview
 
-You can rely on GitHub Actions only. For local preview, install Ruby/Jekyll and run:
+### Установка (Arch Linux)
+
+1. **Установите Ruby и Bundler:**
+   ```bash
+   sudo pacman -S ruby ruby-bundler
+   ```
+
+2. **Установите зависимости проекта:**
+   ```bash
+   cd /home/abirman/repos/blog
+   bundle install
+   ```
+
+3. **Запустите локальный сервер:**
+   ```bash
+   bundle exec jekyll serve --livereload
+   ```
+
+   Сайт будет доступен по адресу: http://localhost:4000
+
+   Флаг `--livereload` автоматически обновляет страницу при изменении файлов.
+
+### Альтернативный способ (без Bundler)
+
+Если предпочитаете установить Jekyll глобально:
 
 ```bash
+sudo pacman -S ruby
+gem install jekyll bundler
 jekyll serve --livereload
 ```
+
+**Рекомендуется использовать Bundler** для управления зависимостями проекта.
 
 ## Structure
 
