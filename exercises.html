@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнения по русскому языку</title>
+    <link rel="stylesheet" href="assets/css/exercises.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Упражнения по русскому языку</h1>
+            <nav class="breadcrumb">
+                <a href="index.html">Главная</a> → Упражнения
+            </nav>
+        </header>
+
+        <main>
+            <!-- Выбор темы -->
+            <section id="topic-selection" class="topic-selection">
+                <h2>Выберите тему упражнения</h2>
+                <div class="topics-grid" id="topics-grid">
+                    <!-- Topics will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Упражнение -->
+            <section id="exercise-container" class="exercise-container hidden">
+                <div class="exercise-header">
+                    <button id="back-btn" class="back-btn">← Назад к темам</button>
+                    <h2 id="exercise-title"></h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                        <span class="progress-text" id="progress-text">0/0</span>
+                    </div>
+                </div>
+
+                <div class="question-card" id="question-card">
+                    <div class="question-number" id="question-number"></div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options" id="options"></div>
+                </div>
+
+                <div class="exercise-controls">
+                    <button id="check-btn" class="btn btn-primary">Проверить</button>
+                    <button id="next-btn" class="btn btn-secondary hidden">Следующий вопрос</button>
+                </div>
+
+                <div id="feedback" class="feedback hidden"></div>
+            </section>
+
+            <!-- Результаты -->
+            <section id="results-container" class="results-container hidden">
+                <div class="results-card">
+                    <h2>Результаты</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" class="score-bg"></circle>
+                                <circle cx="50" cy="50" r="45" class="score-progress" id="score-circle"></circle>
+                            </svg>
+                            <div class="score-text">
+                                <span id="score-percentage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="score-message" id="score-message"></p>
+                    <div class="score-details">
+                        <p>Правильных ответов: <strong id="correct-count">0</strong></p>
+                        <p>Всего вопросов: <strong id="total-count">0</strong></p>
+                    </div>
+                    <div class="results-actions">
+                        <button id="retry-btn" class="btn btn-primary">Попробовать снова</button>
+                        <button id="topics-btn" class="btn btn-secondary">Выбрать другую тему</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Упражнения по русскому языку</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/exercises.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
