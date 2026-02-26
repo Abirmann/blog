@@ -46,7 +46,7 @@ body {
 
 .site-header .container {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 1rem;
 	padding: 0.6rem 1rem;
 }
@@ -58,30 +58,16 @@ body {
 	font-weight: 500;
 	font-size: 1.4rem;
 	letter-spacing: 0;
-	line-height: 1.15;
-	display: flex;
-	flex-direction: column;
-	gap: 0.05rem;
-}
-.site-title-main {
-	display: block;
-}
-.site-title-sub {
-	display: block;
-	font-size: 0.48rem;
-	font-weight: 400;
-	color: var(--muted);
-	letter-spacing: 0.33em;
-}
-.site-title-line1 { white-space: nowrap; }
-.site-title-line2 { white-space: nowrap; }
-.site-title::after {
-	content: none;
-	display: none;
+	line-height: 1.2;
 }
 .site-title:hover { opacity: .85; }
 
-.site-nav { display: flex; margin-left: auto; margin-right: auto; gap: 2.75rem; }
+.site-nav { 
+	display: flex; 
+	margin-left: auto; 
+	gap: 2.75rem; 
+	align-items: center;
+}
 .site-nav a {
 	text-decoration: none;
 	color: var(--text);
@@ -107,16 +93,29 @@ body {
 	.site-nav { gap: 3.25rem; }
 	.site-nav a + a::before { left: -1.5rem; border-left-color: rgba(42, 37, 31, 0.4); }
 	.site-nav a { font-size: 1.3rem; }
-	.site-title::after { margin: 0 1.25rem; font-size: 1.5rem; }
 }
 
 /* Mobile header stacking: title on first line, sections on second with divider */
 @media (max-width: 767px) {
-	.site-header .container { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.6rem 1rem; }
-	.site-title { text-align: center; max-width: none; display: block; width: 100%; }
-	.site-title-line1, .site-title-line2 { display: inline; white-space: nowrap; }
-	.site-title-line1::after { content: ' '; }
-	.site-nav { width: 100%; justify-content: center; border-top: 1px solid rgba(42, 37, 31, 0.3); padding-top: 0.5rem; margin-top: 0.35rem; gap: 1.75rem; }
+	.site-header .container { 
+		flex-direction: column; 
+		align-items: center; 
+		gap: 0.4rem; 
+		padding: 0.6rem 1rem; 
+	}
+	.site-title { 
+		text-align: center; 
+		width: 100%; 
+	}
+	.site-nav { 
+		width: 100%; 
+		justify-content: center; 
+		border-top: 1px solid rgba(42, 37, 31, 0.3); 
+		padding-top: 0.5rem; 
+		margin-top: 0.35rem; 
+		margin-left: 0;
+		gap: 1.75rem; 
+	}
 	.site-nav a + a::before { left: -0.9rem; }
 }
 
