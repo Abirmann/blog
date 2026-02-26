@@ -138,7 +138,7 @@
 
 		if (sections.length <= 1 && sections.length > 0) {
 			// Only one section — no pagination needed, just show it
-			sections[0].el.style.display = '';
+			sections[0].el.style.display = 'block';
 			pageNav.style.display = 'none';
 			toc.style.display = 'none';
 			return true;
@@ -152,10 +152,6 @@
 			a.href = '#page-' + i;
 			a.textContent = sec.title;
 			a.dataset.pageIndex = i;
-			a.addEventListener('click', function(e) {
-				e.preventDefault();
-				showPage(i);
-			});
 			li.appendChild(a);
 			tocList.appendChild(li);
 		});
@@ -170,8 +166,13 @@
 			if (index < 0 || index >= sections.length) return;
 			currentPage = index;
 
+			// Hide all pages, show only current
 			sections.forEach(function(s, i) {
-				s.el.style.display = (i === index) ? '' : 'none';
+				if (i === index) {
+					s.el.style.display = 'block';
+				} else {
+					s.el.style.display = 'none';
+				}
 			});
 
 			// Update TOC active state
@@ -185,25 +186,27 @@
 
 			// Prev button
 			if (index > 0) {
-				prevLink.style.visibility = 'visible';
+				prevLink.style.display = 'flex';
 				prevLink.querySelector('.page-nav-label').textContent = sections[index - 1].title;
+				prevLink.href = '#page-' + (index - 1);
 			} else {
-				prevLink.style.visibility = 'hidden';
+				prevLink.style.display = 'none';
 			}
 
 			// Next button
 			if (index < sections.length - 1) {
-				nextLink.style.visibility = 'visible';
+				nextLink.style.display = 'flex';
 				nextLink.querySelector('.page-nav-label').textContent = sections[index + 1].title;
+				nextLink.href = '#page-' + (index + 1);
 			} else {
-				nextLink.style.visibility = 'hidden';
+				nextLink.style.display = 'none';
 			}
 
 			// Indicator
 			indicator.textContent = (index + 1) + ' / ' + sections.length;
 
 			// Show nav
-			pageNav.style.display = '';
+			pageNav.style.display = 'flex';
 
 			// Scroll to top
 			window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -212,14 +215,26 @@
 			history.replaceState(null, '', '#page-' + index);
 		}
 
+		// Add click handlers to TOC links
+		Array.from(tocList.querySelectorAll('a')).forEach(function(a, i) {
+			a.addEventListener('click', function(e) {
+				e.preventDefault();
+				showPage(i);
+			});
+		});
+
 		prevLink.addEventListener('click', function(e) {
 			e.preventDefault();
-			showPage(currentPage - 1);
+			if (currentPage > 0) {
+				showPage(currentPage - 1);
+			}
 		});
 
 		nextLink.addEventListener('click', function(e) {
 			e.preventDefault();
-			showPage(currentPage + 1);
+			if (currentPage < sections.length - 1) {
+				showPage(currentPage + 1);
+			}
 		});
 
 		// Handle browser back/forward for hash changes
