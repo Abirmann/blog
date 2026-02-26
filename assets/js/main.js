@@ -138,8 +138,7 @@
 			};
 		}
 		
-		// Reverse sections array to get correct order
-		sections.reverse();
+		// Sections are already in correct order (no reverse needed)
 
 		if (sections.length <= 1 && sections.length > 0) {
 			// Only one section — no pagination needed, just show it

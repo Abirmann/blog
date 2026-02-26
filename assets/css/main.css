@@ -309,8 +309,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .page-nav-prev,
 .page-nav-next {
 	display: none;
-	flex-direction: column;
-	gap: 0.15rem;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
 	text-decoration: none;
 	color: var(--text);
 	max-width: 42%;
@@ -324,16 +325,20 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 	text-decoration: none;
 }
 
+.page-nav-prev {
+	justify-content: flex-start;
+}
+
 .page-nav-next {
-	text-align: right;
 	margin-left: auto;
-	align-items: flex-end;
+	justify-content: flex-end;
 }
 
 .page-nav-arrow {
-	font-size: 1.1rem;
+	font-size: 1.3rem;
 	color: var(--muted);
 	line-height: 1;
+	font-weight: 400;
 }
 
 .page-nav-label {
