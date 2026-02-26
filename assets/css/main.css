@@ -309,7 +309,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 
 .page-nav-prev,
 .page-nav-next {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	gap: 0.15rem;
 	text-decoration: none;
@@ -373,7 +373,4 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 /* Essay pages (sections for paginated essays) */
 .essay-page {
 	display: none;
-}
-.essay-page:first-of-type {
-	display: block;
 }
